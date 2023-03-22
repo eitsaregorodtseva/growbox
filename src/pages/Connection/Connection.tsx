@@ -38,46 +38,60 @@ export const Connection = () => {
       <Typography sx={{ fontSize: "60px", textAlign: "center" }}>
         Будем на связи
       </Typography>
-      <Box sx={{ display: "flex", flexDirection: "column", marginTop: '50px', gap: '30px' }}>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <InputLabel sx={{ color: "#ffffff" }}>Имя</InputLabel>
-        <Controller
-          control={control}
-          render={({
-            field: { onChange, onBlur, value, name, ref },
-            fieldState: { invalid, isTouched, isDirty, error },
-            formState,
-          }) => <TextField variant="standard" 
-          onChange={onChange}/>}
-          name={"name"}
-        />
-      </Box>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <InputLabel sx={{ color: "#ffffff" }}>Email</InputLabel>
-        <Controller
-          control={control}
-          render={({
-            field: { onChange, onBlur, value, name, ref },
-            fieldState: { invalid, isTouched, isDirty, error },
-            formState,
-          }) => <TextField variant="standard" 
-          onChange={onChange}/>}
-          name={"email"}
-        />
-      </Box>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <InputLabel sx={{ color: "#ffffff" }}>Вопрос</InputLabel>
-        <Controller
-          control={control}
-          render={({
-            field: { onChange, onBlur, value, name, ref },
-            fieldState: { invalid, isTouched, isDirty, error },
-            formState,
-          }) => <TextField variant="standard" 
-          onChange={onChange}/>}
-          name={"question"}
-        />
-      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "50px",
+          gap: "30px",
+        }}
+      >
+        <Box sx={{ display: "flex", flexDirection: "row" }}>
+          {/* <InputLabel sx={{ color: "#ffffff" }}>Имя</InputLabel> */}
+          <Controller
+            control={control}
+            render={({
+              field: { onChange, onBlur, value, name, ref },
+              fieldState: { invalid, isTouched, isDirty, error },
+              formState,
+            }) => (
+              <TextField variant="standard" label="Имя" onChange={onChange} />
+            )}
+            name={"name"}
+          />
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "row" }}>
+          {/* <InputLabel sx={{ color: "#ffffff" }}>Email</InputLabel> */}
+          <Controller
+            control={control}
+            render={({
+              field: { onChange, onBlur, value, name, ref },
+              fieldState: { invalid, isTouched, isDirty, error },
+              formState,
+            }) => (
+              <TextField variant="standard" label="Email" onChange={onChange} />
+            )}
+            name={"email"}
+          />
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "row" }}>
+          {/* <InputLabel sx={{ color: "#ffffff" }}>Вопрос</InputLabel> */}
+          <Controller
+            control={control}
+            render={({
+              field: { onChange, onBlur, value, name, ref },
+              fieldState: { invalid, isTouched, isDirty, error },
+              formState,
+            }) => (
+              <TextField
+                variant="standard"
+                label="Вопрос"
+                onChange={onChange}
+              />
+            )}
+            name={"question"}
+          />
+        </Box>
       </Box>
       <Button type="submit">Отправить</Button>
       <Box sx={{ display: "flex", flexDirection: "row", gap: "10px" }}>

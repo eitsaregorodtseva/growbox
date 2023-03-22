@@ -5,7 +5,7 @@ export const theme = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
-          width: "350px",
+          width: "300px",
           color: "#ffffff",
         },
       },
