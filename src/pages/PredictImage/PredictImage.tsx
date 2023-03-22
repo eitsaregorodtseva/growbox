@@ -55,6 +55,7 @@ export const PredictImage = () => {
         display: "flex",
         flexDirection: "column",
         gap: "30px",
+        // marginBottom: '30%'
       }}
     >
       <Typography variant="h4">Определение стадии роста растения</Typography>

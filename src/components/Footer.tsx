@@ -7,6 +7,7 @@ export const Footer = () => {
       sx={{
         marginLeft: "35px",
         marginBottom: "30px",
+        height: '100px'
       }}
     >
       <Typography variant="body1">ⓒ 2023 Лукошко</Typography>

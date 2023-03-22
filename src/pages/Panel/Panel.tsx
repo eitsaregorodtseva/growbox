@@ -7,7 +7,7 @@ export const Panel = () => {
   return (
     <Box
       sx={{
-        margin: "200px",
+        marginTop: "100px",
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",

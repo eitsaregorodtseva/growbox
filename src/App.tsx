@@ -27,11 +27,13 @@ function App() {
           <Navbar />
           <Box
             sx={{
-              // minHeight: '80vh',
+              // minHeight: '75vh',
+              // height: '80vh',
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
+              marginBottom: '100px'
             }}
           >
             <BrowserRouter>
