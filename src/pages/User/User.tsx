@@ -108,11 +108,13 @@ export const User = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
+          flexWrap: 'wrap',
+          justifyContent: 'center',
           gap: "80px",
           border: "2px solid white",
-          marginTop: "80px",
+          marginTop: "50px",
           padding: "20px",
-          width: "400px",
+          maxWidth: "500px",
         }}
       >
         <img src={lamp} height="100px" alt="" />

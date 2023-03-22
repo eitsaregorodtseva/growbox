@@ -26,7 +26,7 @@ export const Users = () => {
       }}
     >
       <Typography variant="h4">Новые заявки</Typography>
-      {newUsers && (
+      {/* {newUsers && ( */}
         <Table>
           <TableHead>
             <TableRow>
@@ -35,15 +35,15 @@ export const Users = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {newUsers.map((user) => (
-              <TableRow key={user.id}>
+            {/* {newUsers.map((user) => ( */}
+              {/* <TableRow key={user.id}>
                 <TableCell>{user.id}</TableCell>
                 <TableCell>{user.email}</TableCell>
               </TableRow>
-            ))}
+            ))} */}
           </TableBody>
         </Table>
-      )}
+      {/* )} */}
     </Box>
   );
 };
