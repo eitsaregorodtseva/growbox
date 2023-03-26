@@ -22,7 +22,7 @@ export const Main = () => {
         flexWrap: "wrap",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: "100px",
+        marginTop: "15%",
         columnGap: "150px",
         rowGap: "80px",
         // flexBasis: "500px",
