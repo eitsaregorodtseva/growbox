@@ -10,14 +10,15 @@ export const Auth = () => {
         justifyContent: "center",
       }}
     >
-      <Typography variant="h2">Авторизация</Typography>
+      <Typography variant="h3">Авторизация</Typography>
       <Box
         sx={{
-          marginTop: "80px",
+          marginTop: "60px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           gap: "30px",
+          alignItems: 'center'
         }}
       >
         <TextField 
