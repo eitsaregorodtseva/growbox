@@ -41,7 +41,7 @@ export const Main = () => {
         </Typography>
         <Typography>Умный гроубокс для вашего дома</Typography>
       </Box>
-      <Box sx={{ marginLeft: "30px" }}>
+      <Box>
         <img src={logo} height="400px" alt="" />
       </Box>
       

@@ -1,7 +1,7 @@
 import { Link, SvgIcon, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Logo } from "../../icons/Logo";
-import { Mail } from "../../icons/Mail";
+import { MailWhite } from "../../icons/Mail_white";
 
 export const Panel = () => {
   return (
@@ -23,11 +23,12 @@ export const Panel = () => {
           gap: "70px",
           justifyContent: "center",
           textAlign: "center",
+          width: '180px'
         }}
       >
         <Link sx={{ textDecoration: "none" }} href="/connection">
           <SvgIcon sx={{ width: "100px", height: "100px" }}>
-            <Mail />
+            <MailWhite />
           </SvgIcon>
         </Link>
         <Typography variant="h5" sx={{ wordWrap: "break-word" }}>
@@ -41,6 +42,7 @@ export const Panel = () => {
           gap: "70px",
           justifyContent: "center",
           textAlign: "center",
+          width: '180px'
         }}
       >
         <Link sx={{ textDecoration: "none" }} href="/predict">
