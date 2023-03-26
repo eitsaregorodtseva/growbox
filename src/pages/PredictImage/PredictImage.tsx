@@ -46,6 +46,10 @@ export const PredictImage = () => {
     }
   };
 
+  const handleImageClick = () => {
+    console.log("clicked");
+  };
+
   return (
     <Box
       sx={{
@@ -55,7 +59,6 @@ export const PredictImage = () => {
         display: "flex",
         flexDirection: "column",
         gap: "30px",
-        // marginBottom: '30%'
       }}
     >
       <Typography variant="h4">Определение стадии роста растения</Typography>
@@ -80,18 +83,63 @@ export const PredictImage = () => {
             flexWrap: "wrap",
             gap: "2px",
             justifyContent: "center",
-            width: '70%'
+            width: "70%",
           }}
         >
-          <img src={pic00} width="30%" />
-          <img src={pic01} width="30%" />
-          <img src={pic04} width="30%" />
-          <img src={pic13} width="30%" />
-          <img src={pic18} width="30%" />
-          <img src={pic21} width="30%" />
-          <img src={pic30} width="30%" />
-          <img src={pic32} width="30%" />
-          <img src={pic34} width="30%" />
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic00} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic01} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic04} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic13} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic18} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic21} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic30} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic32} width="100%" height="100%" alt="" />
+          </Button>
+          <Button
+            onClick={handleImageClick}
+            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
+          >
+            <img src={pic34} width="100%" height="100%" alt="" />
+          </Button>
         </Box>
         <Box
           sx={{
@@ -99,7 +147,7 @@ export const PredictImage = () => {
             flexDirection: "column",
             justifyContent: "center",
             gap: "30px",
-            width: '300px'
+            width: "300px",
           }}
         >
           <Typography>
