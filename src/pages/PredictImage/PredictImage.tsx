@@ -83,7 +83,7 @@ export const PredictImage = () => {
             flexWrap: "wrap",
             gap: "2px",
             justifyContent: "center",
-            width: "70%",
+            width: "72%",
           }}
         >
           <Button
