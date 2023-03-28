@@ -10,8 +10,9 @@ import {
 import { useGetUsers } from "../../api/getUsers";
 
 export interface User {
-  id: number;
+  name: string;
   email: string;
+  question: string;
 }
 export const Users = () => {
   const newUsers = useGetUsers();
@@ -22,29 +23,31 @@ export const Users = () => {
         margin: "50px 20px 50px 50px",
         display: "flex",
         flexDirection: "column",
-        gap: '40px',
-        minHeight: '70vh'
+        gap: "40px",
+        minHeight: "70vh",
       }}
     >
       <Typography variant="h4">Новые заявки</Typography>
-      {/* {newUsers && ( */}
+      {newUsers && (
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>id</TableCell>
-              <TableCell>email</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Имя</TableCell>
+              <TableCell>Вопрос</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {newUsers.map((user) => ( */}
-              {/* <TableRow key={user.id}>
-                <TableCell>{user.id}</TableCell>
+            {newUsers.map((user) => (
+              <TableRow key={user.email}>
                 <TableCell>{user.email}</TableCell>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.question}</TableCell>
               </TableRow>
-            ))} */}
+            ))}
           </TableBody>
         </Table>
-      {/* )} */}
+      )}
     </Box>
   );
 };
