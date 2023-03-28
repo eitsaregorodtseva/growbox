@@ -26,7 +26,7 @@ export const Panel = () => {
           width: '180px'
         }}
       >
-        <Link sx={{ textDecoration: "none" }} href="/connection">
+        <Link sx={{ textDecoration: "none" }} href="/feedback">
           <SvgIcon sx={{ width: "100px", height: "100px" }}>
             <MailWhite />
           </SvgIcon>

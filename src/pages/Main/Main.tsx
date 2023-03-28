@@ -1,52 +1,49 @@
+import { Button, List, ListItem } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import axios from "axios";
-import { useEffect } from "react";
 import logo from "./growBox.png";
 
 export const Main = () => {
   return (
-    <Box sx={{
-      display: "flex",
-      flexDirection: "column",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "100px",
-    }}
-    >
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         flexWrap: "wrap",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: "15%",
-        columnGap: "150px",
-        rowGap: "80px",
-        // flexBasis: "500px",
-        // marginLeft: '200px',
-        // marginRight: '50px'
+        gap: "100px",
       }}
     >
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop: "15%",
+          columnGap: "150px",
+          rowGap: "80px",
         }}
       >
-        <Typography sx={{ fontSize: "40pt", textTransform: "uppercase" }}>
-          Лукошко
-        </Typography>
-        <Typography>Умный гроубокс для вашего дома</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Typography sx={{ fontSize: "40pt", textTransform: "uppercase" }}>
+            Лукошко
+          </Typography>
+          <Typography>Умный гроубокс для вашего дома</Typography>
+          <Button sx={{marginTop: '40px'}} href='/info'>Узнать больше</Button>
+        </Box>
+        <Box>
+          <img src={logo} height="400px" alt="" />
+        </Box>
       </Box>
-      <Box>
-        <img src={logo} height="400px" alt="" />
-      </Box>
-      
-    </Box>
-    {/* <Link sx={{textDecoration: 'none'}} href="/connection">Заказать</Link> */}
     </Box>
   );
 };

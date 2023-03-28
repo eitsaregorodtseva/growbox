@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { Paper, ThemeProvider } from "@mui/material";
 import { theme } from "./theme/components";
 import backImage from "./back.jpg";
-import { Auth, Connection, Main, Panel, PredictImage, Users } from "./pages";
+import { Auth, Connection, Info, Main, Panel, Predict, PredictImage, Users } from "./pages";
 import { Footer } from "./components/Footer";
 import { User } from "./pages/User/User";
 
@@ -21,34 +21,36 @@ function App() {
             flexDirection: "column",
             height: "100vh",
             width: "100vw",
-            overflowX: "hidden"
+            overflowX: "hidden",
           }}
         >
           <Navbar />
           <Box
             sx={{
-              // minHeight: '75vh',
+              // minHeight: '80vh',
               // height: '80vh',
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              marginBottom: '100px'
+              marginBottom: '200px'
             }}
           >
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="/connection" element={<Connection />} />
+                <Route path="/feedback" element={<Connection />} />
                 <Route path="/auth" element={<Auth />} />
                 <Route path="/users" element={<Users />} />
                 <Route path="/predict" element={<PredictImage />} />
                 <Route path="/panel" element={<Panel />} />
                 <Route path="/dashboard" element={<User />} />
+                <Route path="/prediction" element={<Predict />} />
+                <Route path="/info" element={<Info />} />
               </Routes>
             </BrowserRouter>
           </Box>
-          {/* <Footer /> */}
+          <Footer />
         </Box>
       </Paper>
     </ThemeProvider>

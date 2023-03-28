@@ -42,7 +42,7 @@ export const theme = createTheme({
         input: {
           color: "#ffffff",
           backgroundColor: 'transparent',
-          '-webkit-text-fill-color': '#fff',
+          WebkitTextFillColor: '#fff',
             "&:-internal-autofill-selected": {
               WebkitTransition: "color 9999s ease-out, background-color 9999s ease-out",
               WebkitTransitionDelay: '9999s',
@@ -77,17 +77,19 @@ export const theme = createTheme({
           borderColor: "#ffffff",
           input: {
             backgroundColor: 'transparent',
-            '-webkit-text-fill-color': '#fff',
+            WebkitTextFillColor: '#fff',
             "&:-internal-autofill-selected": {
               WebkitTransition: "color 9999s ease-out, background-color 9999s ease-out",
               WebkitTransitionDelay: '9999s',
               "::hover": {
                 WebkitTransition: "color 9999s ease-out, background-color 9999s ease-out",
-              WebkitTransitionDelay: '9999s',
+                WebkitTransitionDelay: '9999s',
+                borderColor: 'white',
               },
               "::focus": {
                 WebkitTransition: "color 9999s ease-out, background-color 9999s ease-out",
-              WebkitTransitionDelay: '9999s',
+                WebkitTransitionDelay: '9999s',
+                borderColor: 'white',
               },
               "::active": {
                 WebkitTransition: "color 9999s ease-out, background-color 9999s ease-out",
@@ -97,6 +99,9 @@ export const theme = createTheme({
             ".MuiDisabled": {
               borderColor: "#ffffff",
               color: "#ffffff",
+            },
+            ".MuiFocused": {
+              borderColor: 'white'
             }
           },
         },
@@ -110,7 +115,7 @@ export const theme = createTheme({
           ".MuiDisabled": {
             borderColor: "#ffffff",
           },
-          "::hover": {
+          "&:hover": {
             borderColor: "#ffffff",
           }
         },

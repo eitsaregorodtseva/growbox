@@ -1,10 +1,8 @@
-import { InputLabel, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { ChangeEvent, MouseEventHandler, useMemo, useState } from "react";
-import { postImage } from "../../api/postImage";
-import { input } from "./styles";
+import { MouseEventHandler, useState } from "react";
+
 import pic00 from "../../pics/set/pic_0000.jpg";
 import pic01 from "../../pics/set/pic_0001.jpg";
 import pic04 from "../../pics/set/pic_0004.jpg";
@@ -35,43 +33,17 @@ const picsArray: IPicType[] = [
 ];
 
 export const PredictImage = () => {
-  const [file, setFile] = useState<File>();
   const [result, setResult] = useState<string>("");
 
   const [activePic, setActivePic] = useState<string>("");
 
-  const filename = useMemo(() => {
-    if (file) {
-      return file?.name;
-    }
-    return "";
-  }, [file]);
-
-  const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      setFile(event.target.files[0]);
-      setResult("");
-    }
-  };
 
   const handlePredictRequest = () => {
-    // if (file) {
-    //   postImage(file)
-    //     .then((response) => {
-    //       console.log(response);
-    //       return JSON.parse(JSON.stringify(response.data));
-    //     })
-    //     .then((data) => {
-    //       console.log(data);
-    //       setResult(data.filename);
-    //     });
-    // }
     const result = picsArray.find((pic) => pic.id === activePic);
     result && setResult(result?.result);
   };
 
   const handleImageClick: MouseEventHandler<HTMLButtonElement> = (event) => {
-    // console.log(event.target.files);
     setActivePic(event.currentTarget.id);
     setResult("");
   };
@@ -166,37 +138,6 @@ export const PredictImage = () => {
           )}
         </Box>
       </Box>
-      {/* <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          margin: "0 0 0 0",
-          justifyContent: "center",
-          gap: "30px",
-        }}
-      >
-        <InputLabel>
-          <TextField
-            sx={{ display: "none" }}
-            name="upload-photo"
-            type="file"
-            onChange={handleChangeFile}
-          />
-          <Button component="span">Загрузить фото</Button>
-        </InputLabel>
-        <TextField
-          value={filename}
-          label="Ваше изображение:"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          InputProps={{
-            readOnly: true,
-          }}
-          sx={input}
-        />
-      </Box> */}
     </Box>
   );
 };

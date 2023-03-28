@@ -5,12 +5,19 @@ export const Footer = () => {
   return (
     <Box
       sx={{
-        marginLeft: "35px",
-        marginBottom: "30px",
-        height: '100px'
+        height: "100px",
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        color: 'rgba(255, 255, 255, 1)',
+        padding: "30px",
+        minHeight: '50px',
+        // position: 'absolute',
+        // bottom: 0,
+        width: '100%'
       }}
     >
-      <Typography variant="body1">ⓒ 2023 Лукошко</Typography>
+      <Box sx={{backgroundColor: 'transparent', zIndex: 100}}>
+        <Typography variant="body1">ⓒ 2023 Лукошко</Typography>
+      </Box>
     </Box>
   );
 };

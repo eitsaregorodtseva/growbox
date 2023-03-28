@@ -8,6 +8,7 @@ export const Auth = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        marginBottom: '130px',
       }}
     >
       <Typography variant="h3">Авторизация</Typography>

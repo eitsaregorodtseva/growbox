@@ -22,7 +22,8 @@ export const Users = () => {
         margin: "50px 20px 50px 50px",
         display: "flex",
         flexDirection: "column",
-        gap: '40px'
+        gap: '40px',
+        minHeight: '70vh'
       }}
     >
       <Typography variant="h4">Новые заявки</Typography>
