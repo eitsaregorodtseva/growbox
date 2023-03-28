@@ -2,7 +2,7 @@ import { InputLabel, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { ChangeEvent, useMemo, useState } from "react";
+import { ChangeEvent, MouseEventHandler, useMemo, useState } from "react";
 import { postImage } from "../../api/postImage";
 import { input } from "./styles";
 import pic00 from "../../pics/set/pic_0000.jpg";
@@ -15,9 +15,30 @@ import pic30 from "../../pics/set/pic_0030.jpg";
 import pic32 from "../../pics/set/pic_0032.jpg";
 import pic34 from "../../pics/set/pic_0034.jpg";
 
+interface IPicType {
+  id: string;
+  name: string;
+  selected: boolean;
+  result: string;
+}
+
+const picsArray: IPicType[] = [
+  { id: "1", name: pic00, selected: false, result: "Final" },
+  { id: "2", name: pic01, selected: false, result: "Final" },
+  { id: "3", name: pic04, selected: false, result: "Final" },
+  { id: "4", name: pic13, selected: false, result: "Average" },
+  { id: "5", name: pic18, selected: false, result: "Final" },
+  { id: "6", name: pic21, selected: false, result: "Average" },
+  { id: "7", name: pic30, selected: false, result: "Average" },
+  { id: "8", name: pic32, selected: false, result: "Final" },
+  { id: "9", name: pic34, selected: false, result: "Start" },
+];
+
 export const PredictImage = () => {
   const [file, setFile] = useState<File>();
-  const [result, setResult] = useState();
+  const [result, setResult] = useState<string>("");
+
+  const [activePic, setActivePic] = useState<string>("");
 
   const filename = useMemo(() => {
     if (file) {
@@ -29,25 +50,30 @@ export const PredictImage = () => {
   const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       setFile(event.target.files[0]);
+      setResult("");
     }
   };
 
   const handlePredictRequest = () => {
-    if (file) {
-      postImage(file)
-        .then((response) => {
-          console.log(response);
-          return JSON.parse(JSON.stringify(response.data));
-        })
-        .then((data) => {
-          console.log(data);
-          setResult(data.filename);
-        });
-    }
+    // if (file) {
+    //   postImage(file)
+    //     .then((response) => {
+    //       console.log(response);
+    //       return JSON.parse(JSON.stringify(response.data));
+    //     })
+    //     .then((data) => {
+    //       console.log(data);
+    //       setResult(data.filename);
+    //     });
+    // }
+    const result = picsArray.find((pic) => pic.id === activePic);
+    result && setResult(result?.result);
   };
 
-  const handleImageClick = () => {
-    console.log("clicked");
+  const handleImageClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    // console.log(event.target.files);
+    setActivePic(event.currentTarget.id);
+    setResult("");
   };
 
   return (
@@ -86,60 +112,25 @@ export const PredictImage = () => {
             width: "72%",
           }}
         >
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic00} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic01} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic04} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic13} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic18} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic21} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic30} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic32} width="100%" height="100%" alt="" />
-          </Button>
-          <Button
-            onClick={handleImageClick}
-            sx={{ cursor: "pointer", padding: "0", width: "32%" }}
-          >
-            <img src={pic34} width="100%" height="100%" alt="" />
-          </Button>
+          {picsArray.map((pic) => (
+            <Button
+              key={pic.id}
+              id={pic.id}
+              onClick={handleImageClick}
+              sx={
+                activePic === pic.id
+                  ? {
+                      cursor: "pointer",
+                      padding: "0",
+                      width: "32%",
+                      opacity: "0.4",
+                    }
+                  : { cursor: "pointer", padding: "0", width: "32%" }
+              }
+            >
+              <img src={pic.name} width="100%" height="100%" alt="" />
+            </Button>
+          ))}
         </Box>
         <Box
           sx={{
@@ -156,6 +147,23 @@ export const PredictImage = () => {
           <Button sx={{ marginBottom: "30px" }} onClick={handlePredictRequest}>
             Определить стадию
           </Button>
+          {result && (
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "10px",
+                marginBottom: "30px",
+              }}
+            >
+              <Typography variant="body1">Растение на стадии:</Typography>
+              <Typography variant="body1" sx={{ fontWeight: "600" }}>
+                {result}
+              </Typography>
+            </Box>
+          )}
         </Box>
       </Box>
       {/* <Box
@@ -189,24 +197,6 @@ export const PredictImage = () => {
           sx={input}
         />
       </Box> */}
-
-      {result && (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "10px",
-            marginBottom: "30px",
-          }}
-        >
-          <Typography variant="body1">Ваше растение на стадии:</Typography>
-          <Typography variant="body1" sx={{ fontWeight: "600" }}>
-            {result}
-          </Typography>
-        </Box>
-      )}
     </Box>
   );
 };
