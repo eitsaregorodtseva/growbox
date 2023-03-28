@@ -35,12 +35,14 @@ export const Navbar = ({logoutFunction, role}: any) => {
           justifyContent: "end",
         }}
       >
-        <Link sx={{ textDecoration: "none" }} href="/">
+        {role === null && (<Link sx={{ textDecoration: "none" }} href="/">
           Главная
         </Link>
-        <Link sx={{ textDecoration: "none" }} href="/panel">
+        )}
+        {role === null && (<Link sx={{ textDecoration: "none" }} href="/panel">
           Панель
         </Link>
+        )}
         {role === Roles.ADMIN && (
           <Link sx={{ textDecoration: "none" }} href="/users">
             Заявки
